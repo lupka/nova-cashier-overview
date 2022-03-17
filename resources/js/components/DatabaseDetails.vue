@@ -1,35 +1,35 @@
 <template>
-  <loading-view 
-    :loading="loading" 
+  <loading-view
+    :loading="loading"
     class="w-full">
-    <display-row 
-      v-if="!subscription" 
-      class="text-70" 
+    <display-row
+      v-if="!subscription"
+      class="text-70"
       label="Status">
       There is no subscription available.
     </display-row>
 
-    <display-row 
-      v-if="subscription" 
+    <display-row
+      v-if="subscription"
       label="Plan">
       {{ subscription.plan }}
     </display-row>
 
-    <display-row 
-      v-if="subscription" 
+    <!-- <display-row
+      v-if="subscription"
       label="Subscribed since">
       {{ subscription.created_at }}
-    </display-row>
+    </display-row> -->
 
-    <display-row 
-      v-if="subscription" 
-      class="remove-bottom-border" 
+    <display-row
+      v-if="subscription"
+      class="remove-bottom-border"
       label="Status">
       <span v-if="subscription.on_grace_period">
         On Grace Period
       </span>
-      <span 
-        v-if="subscription.cancelled || subscription.ends_at" 
+      <span
+        v-if="subscription.cancelled || subscription.ends_at"
         class="text-danger">
         Cancelled
       </span>
